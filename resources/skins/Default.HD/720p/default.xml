@@ -1,0 +1,1988 @@
+<window id="3000">
+	<defaultcontrol always="true">9000</defaultcontrol>
+	<allowoverlay>no</allowoverlay>
+
+	<controls>		
+
+		<!-- backgrounds -->	
+		<control type="multiimage">
+			<description>backgrounds</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath background="true">$INFO[Skin.String(scriptbackground)]</imagepath>
+			<timeperimage>8000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+		</control>
+		<!-- backgrounds -->
+		<control type="multiimage">
+			<description>control list 9000 backgrounds</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1280</width>
+			<height>720</height>
+			<imagepath background="true">$INFO[Container(9000).ListItem.Icon]</imagepath>
+			<timeperimage>8000</timeperimage>
+			<randomize>true</randomize>
+			<fadetime>1000</fadetime>
+			<animation effect="fade" start="0" end="100" time="1000"  condition="ControlGroup(8990).HasFocus">Conditional</animation>
+			
+		</control>
+		
+		
+		
+		
+		
+		
+		
+		
+
+		<!-- START: Lists -->	
+		<control type="group" id="202">
+				<posx>128</posx>
+				<posy>104</posy>
+        <visible>Skin.String(showcalendar,2)</visible>
+			  <animation effect="zoom" start="100" end="75" center="1400,288" time="400" tween="quadratic" easing="out"  condition="ControlGroup(8990).HasFocus">Conditional</animation>
+			  <animation effect="zoom" start="100" end="78" center="1400,288" time="400" tween="quadratic" easing="out"  condition="ControlGroup(10001).HasFocus">Conditional</animation>
+			  <animation effect="fade" start="100" end="70" time="400" tween="quadratic" easing="out"  condition="ControlGroup(8990).HasFocus">Conditional</animation>
+			  <animation effect="fade" start="100" end="0" time="400" tween="quadratic" easing="out"  condition="Container(9000).HasFocus(4) + ControlGroup(8990).HasFocus">Conditional</animation>
+			  <animation effect="fade" start="0" end="100" time="600">VisibleChange</animation>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+
+		<control type="image">
+			<description>Content Background</description>
+			<posx>0</posx>
+			<posy>0</posy>
+			<width>1024</width>			
+			<height>512</height>			
+			<texture>ContentPanel.png</texture>	
+		</control>
+
+		<control type="image">
+			<description>Vertical Separator</description>
+			<posx>440</posx>
+			<posy>10</posy>		
+			<texture>separator_vertical.png</texture>	
+		</control>		
+		
+		
+		<control type="label" id="602">
+			<description>DisplayMonth</description>
+			<width>200</width>			
+			<posx>630</posx>
+			<posy>40</posy>
+			<align>center</align>
+			<aligny>center</aligny>
+			<label></label>
+			<font>calendar16</font>
+			<textcolor>FFFFFFFF</textcolor>
+		</control>
+		
+			<!-- START: Lists -->			
+			
+			<control type="panel" id="150">
+				<description>Calendar days list</description>
+				<posx>450</posx>
+				<posy>100</posy>
+				<width>560</width>
+				<height>390</height>
+				<onup>203</onup>
+				<ondown>150</ondown>
+				<onleft>204</onleft>
+				<onright>8990</onright>
+				<pagecontrol>25</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="65" width="80">
+					<control type="image">
+						<posx>0</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>65</height>
+						<info>ListItem.Thumb</info>
+					</control>		
+					<control type="image">
+						<width>80</width>
+						<height>65</height>
+						<posx>0</posx>
+						<posy>0</posy>					
+						<texture>calendar_today.png</texture>
+						<visible>!IsEmpty(ListItem.Property(today))</visible>
+					</control>
+          <control type="group">
+    					<visible>!IsEmpty(ListItem.Property(event))</visible>
+    					<control type="image">
+    						<posx>24</posx>
+    						<posy>7</posy>	
+    						<texture>calendar_evt.png</texture>			
+    						<visible>IsEmpty(ListItem.Property(today))</visible>						
+    					</control>		
+    					<control type="image">
+    						<posx>27</posx>
+    						<posy>3</posy>	
+    						<texture>calendar_evt_today.png</texture>
+    						<visible>!IsEmpty(ListItem.Property(today))</visible>
+    					</control>
+					</control>			
+					<control type="label">
+						<posx>40</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>65</height>
+						<font>calendar14</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>ffffffff</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="65" width="80">
+					<control type="image">
+						<width>80</width>
+						<height>65</height>
+						<posx>0</posx>
+						<posy>0</posy>					
+						<texture>calendar_select.png</texture>
+					</control>
+          <control type="group">
+    					<visible>!IsEmpty(ListItem.Property(event))</visible>				
+    					<control type="image">
+    						<posx>27</posx>
+    						<posy>3</posy>	
+    						<texture>calendar_evt.png</texture>									
+    					</control>				
+    					<control type="image">
+    						<posx>27</posx>
+    						<posy>3</posy>	
+    						<texture>calendar_evt_today.png</texture>
+    					</control>	
+					</control>
+					<control type="label">
+						<posx>40</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>65</height>
+						<font>calendar15</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>ffffffff</textcolor>
+					</control>			
+				</focusedlayout>
+			</control>
+			
+			<control type="list" id="250">
+				<description>Days Name</description>
+				<posx>465</posx>
+				<posy>50</posy>
+				<width>560</width>
+				<height>50</height>
+				<onup>202</onup>
+				<ondown>202</ondown>
+				<onleft>204</onleft>
+				<onright>204</onright>
+				<pagecontrol>25</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<orientation>horizontal</orientation>
+				<itemlayout height="70" width="80">	
+					<control type="label">
+						<posx>25</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>50</height>
+						<font>calendar12</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>ff777777</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="70" width="80">
+					<control type="label">
+						<posx>25</posx>
+						<posy>0</posy>
+						<width>80</width>
+						<height>50</height>
+						<font>calendar12</font>
+						<align>center</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>ff777777</textcolor>
+					</control>
+				</focusedlayout>
+			</control>
+
+		<!-- END: Next Prev -->
+		
+		
+		<control type="group" id="203">
+				
+			<!-- NEXT, PREV -->		
+			<control type="button" id="130">
+				<description>Next Button</description>
+				<label></label>
+				<posx>965</posx>
+				<posy>25</posy>
+				<width>25</width>
+				<height>25</height>				
+				<texturefocus>scroll-right-focus.png</texturefocus>
+				<texturenofocus>scroll-right.png</texturenofocus>
+				<textcolor>ffffffff</textcolor>
+				<disabledcolor>60ffffff</disabledcolor>
+				<onright>202</onright>
+				<onleft>131</onleft>
+				<onup>203</onup>
+				<ondown>150</ondown>
+			</control>
+			
+			<control type="button" id="131">
+				<description>Prev Button</description>
+				<label></label>				
+				<posx>475</posx>
+				<posy>25</posy>
+				<width>25</width>
+				<height>25</height>		
+				<texturefocus>scroll-left-focus.png</texturefocus>
+				<texturenofocus>scroll-left.png</texturenofocus>
+				<textcolor>ffffffff</textcolor>
+				<disabledcolor>60ffffff</disabledcolor>
+				<textoffsetx>17</textoffsetx>
+				<aligny>center</aligny>
+				<font>calendar10</font>
+
+				<onright>130</onright>
+				<onleft>204</onleft>
+				<onup>8990</onup>
+				<ondown>150</ondown>
+			</control>	
+		</control>
+		
+		<!-- Add Events - Content Panel Group -->	
+		
+    <control type="group" id="204"> 
+			  <animation effect="fade" start="0" end="100" time="600">VisibleChange</animation>
+
+		<control type="image">
+			  <animation effect="fade" start="0" end="100" time="400" tween="quadratic" easing="out"  condition="ControlGroup(204).HasFocus">Conditional</animation>
+			<description>Vertical Separator</description>
+			<posx>440</posx>
+			<posy>10</posy>		
+			<texture>separator_vertical-focus.png</texture>	
+		</control>		
+		
+    <control type="group" id="205">
+      <visible>Skin.String(TabSettings,1)</visible>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+			
+			<control type="label" id="8800">
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar25caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT20</label>
+			</control>	
+			
+			<control type="panel" id="8801">
+				<description>Events list</description>
+				<posx>18</posx>
+				<posy>100</posy>
+				<width>420</width>
+				<height>390</height>
+				<onup>205</onup>
+				<ondown>204</ondown>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<pagecontrol>25</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="65" width="420">
+					<control type="image">
+						<posx>350</posx>
+						<posy>0</posy>
+						<width>69</width>
+						<height>69</height>	
+						<texture>$INFO[ListItem.Property(color)]</texture>
+			      <colordiffuse></colordiffuse>
+						<visible></visible>							
+					</control>
+					<control type="image">
+						<width>420</width>
+						<height>68</height>
+						<posx>0</posx>
+						<posy>0</posy>					
+						<texture>MenuItemNF.png</texture>
+					</control>					
+					<control type="label">
+						<posx>50</posx>
+						<posy>0</posy>
+						<width>350</width>
+						<height>50</height>
+						<font>calendar14</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>ffaaaaaa</textcolor>
+					</control>					
+					<control type="label">
+						<posx>300</posx>
+						<posy>20</posy>
+						<width>100</width>
+						<height>50</height>
+						<font>calendar10</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Property(length)</info>
+						<textcolor>ffaaaaaa</textcolor>
+					</control>
+				</itemlayout>
+				<focusedlayout height="70" width="420">
+					<control type="image">
+						<posx>350</posx>
+						<posy>0</posy>
+						<width>69</width>
+						<height>69</height>	
+						<texture>$INFO[ListItem.Property(colorfocus)]</texture>
+			      <colordiffuse></colordiffuse>
+						<visible></visible>							
+					</control>	
+					<control type="image">
+						<width>420</width>
+						<height>60</height>
+						<posx>0</posx>
+						<posy>4</posy>					
+						<texture>MenuItemFO.png</texture>
+					</control>				
+					<control type="label">
+						<posx>50</posx>
+						<posy>0</posy>
+						<width>320</width>
+						<height>50</height>
+						<font>calendar14</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>FFFFFFFF</textcolor>
+					</control>					
+					<control type="label">
+						<posx>300</posx>
+						<posy>20</posy>
+						<width>100</width>
+						<height>50</height>
+						<font>calendar10</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Property(length)</info>
+						<textcolor>ffFFFFFF</textcolor>
+					</control>	
+				</focusedlayout>
+			</control>
+			
+		</control>		
+		
+		
+		
+		<!-- Add Events - Content Panel Group -->	
+		
+    <control type="group" id="206">
+    <visible>Skin.String(TabSettings,2)</visible>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+			
+			<control type="label">
+        <visible>Skin.String(modEvent,0)</visible>
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar30caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT23</label>
+			</control>
+			
+			<control type="label">
+        <visible>Skin.String(modEvent,1)</visible>
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar30caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT25</label>
+			</control>
+			
+  		<control type="group" id="8701">
+  			<description>Calendar choice parameter - Add Event</description>
+				<width>420</width>
+				<height>65</height>
+  			<posx>0</posx>
+  			<posy>100</posy>
+  			<visible></visible>
+  			
+  			<control type="button" id="8711">
+  				<description>Decrease Calendar Parameter - Add Event</description>
+  				<posx>370</posx>
+  				<posy>28</posy>
+  				<width>12</width>
+  				<height>12</height>
+  				<texturenofocus>scroll-down.png</texturenofocus>
+  				<texturefocus>scroll-down-focus.png</texturefocus>
+  				<onleft>8990</onleft>
+  				<onright>8712</onright>
+  				<ondown>8702</ondown>
+  				<onup>9001</onup>
+  			</control>
+  			
+  			<control type="button" id="8712">
+  				<description>Increase Calendar Parameter - Add Event</description>
+  				<posx>390</posx>
+  				<posy>30</posy>
+  				<width>12</width>
+  				<height>12</height>
+  				<texturenofocus>scroll-up.png</texturenofocus>
+  				<texturefocus>scroll-up-focus.png</texturefocus>
+  				<onleft>8711</onleft>
+  				<onright>150</onright>
+  				<ondown>8702</ondown>
+  				<onup>9001</onup>
+  			</control>
+  			
+  			<control type="button" id="8713">
+  				<description>Label Calendar Parameter - Add Event</description>
+  				<posx>20</posx>
+  				<posy>0</posy>
+  				<width>345</width>
+  				<height>65</height>
+  				<textoffsetx>15</textoffsetx>
+  				<label>SCRIPT1230</label>
+  				<label2></label2>
+  				<font>calendar14</font>
+  				<textcolor>ffffffff</textcolor>
+  				<colordiffuse>ffffffff</colordiffuse>
+  				<disabledcolor>60d0d0d0</disabledcolor>
+  				<aligny>center</aligny>
+  				<texturefocus>-</texturefocus>
+  				<texturenofocus>-</texturenofocus>
+  				<onleft>202</onleft>
+  				<onright>9032</onright>
+  				<ondown>9004</ondown>
+  				<onup>9002</onup>
+  			</control>
+  			
+  		</control>	
+			
+			<control type="button" id="8702">
+				<description>Label title event - Add Event</description>
+				<posx>20</posx>
+				<posy>165</posy>
+				<width>400</width>
+				<height>68</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1231</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>8703</ondown>
+				<onup>8701</onup>
+			</control>
+			
+			<control type="button" id="8703">
+				<description>Label start date event - Add Event</description>
+				<posx>20</posx>
+				<posy>230</posy>
+				<width>400</width>
+				<height>68</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1232</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>8704</ondown>
+				<onup>8702</onup>
+			</control>
+			
+			<control type="button" id="8704">
+				<description>Label end date event - Add Event</description>
+				<posx>20</posx>
+				<posy>295</posy>
+				<width>400</width>
+				<height>68</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1234</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>8705</ondown>
+				<onup>8703</onup>
+			</control>
+			
+			<control type="button" id="8705">
+				<description>Label allday event - Add Event</description>
+				<posx>20</posx>
+				<posy>360</posy>
+				<width>400</width>
+				<height>68</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1236</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>8706</ondown>
+				<onup>8704</onup>
+			</control>
+  			
+			<control type="button" id="8706">
+				<description>Button Validation - Add Event</description>
+				<posx>370</posx>
+				<posy>441</posy>
+				<width>32</width>
+				<height>32</height>
+				<textoffsetx>15</textoffsetx>
+				<label></label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<aligny>center</aligny>
+				<align>center</align>
+				<texturefocus>Validate-focus.png</texturefocus>
+				<texturenofocus>Validate.png</texturenofocus>
+				<onleft>8707</onleft>
+				<onright>150</onright>
+				<ondown>204</ondown>
+				<onup>8705</onup>
+			</control>
+  			
+			<control type="button" id="8707">
+				<description>Button Validation - Delete Event</description>
+				<posx>320</posx>
+				<posy>443</posy>
+				<width>32</width>
+				<height>32</height>
+				<textoffsetx>15</textoffsetx>
+				<label></label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<aligny>center</aligny>
+				<align>center</align>
+				<texturefocus>button-delete-FO.png</texturefocus>
+				<texturenofocus>button-delete-NF.png</texturenofocus>
+        <visible>Skin.String(modEvent,1)</visible>
+				<onleft>8990</onleft>
+				<onright>8706</onright>
+				<ondown>204</ondown>
+				<onup>8705</onup>
+			</control>
+			
+		</control>		
+			
+		
+		<!-- View Calendars - Content Panel Group -->	
+		
+    <control type="group" id="207">
+    <visible>Skin.String(TabSettings,3)</visible>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+			
+			<control type="label">
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar30caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT21</label>
+			</control>		
+			
+			<control type="panel" id="8901">
+				<description>Calendars list</description>
+				<posx>18</posx>
+				<posy>100</posy>
+				<width>420</width>
+				<height>390</height>
+				<onup>8901</onup>
+				<ondown>20</ondown>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<pagecontrol>25</pagecontrol>
+				<scrolltime>200</scrolltime>
+				<itemlayout height="65" width="420">
+					<control type="image">
+						<posx>350</posx>
+						<posy>0</posy>
+						<width>69</width>
+						<height>69</height>	
+						<texture>$INFO[ListItem.Property(color)]</texture>
+			      <colordiffuse></colordiffuse>
+						<visible></visible>							
+					</control>
+					<control type="image">
+						<posx>0</posx>
+						<posy>4</posy>
+						<width>60</width>
+						<height>60</height>
+						<info>ListItem.Thumb</info>
+					</control>	
+					<control type="image">
+						<width>420</width>
+						<height>68</height>
+						<posx>0</posx>
+						<posy>0</posy>					
+						<texture>MenuItemNF.png</texture>
+					</control>					
+					<control type="label">
+						<posx>90</posx>
+						<posy>0</posy>
+						<width>350</width>
+						<height>50</height>
+						<font>calendar14</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>ffffffff</textcolor>
+					</control>	
+				</itemlayout>
+				<focusedlayout height="70" width="420">
+					<control type="image">
+						<posx>350</posx>
+						<posy>0</posy>
+						<width>69</width>
+						<height>69</height>	
+						<texture>$INFO[ListItem.Property(colorfocus)]</texture>
+			      <colordiffuse></colordiffuse>
+						<visible></visible>							
+					</control>	
+					<control type="image">
+						<posx>0</posx>
+						<posy>4</posy>
+						<width>60</width>
+						<height>60</height>
+						<info>ListItem.Thumb</info>
+					</control>	
+					<control type="image">
+						<width>420</width>
+						<height>60</height>
+						<posx>0</posx>
+						<posy>4</posy>					
+						<texture>MenuItemFO.png</texture>
+					</control>				
+					<control type="label">
+						<posx>90</posx>
+						<posy>0</posy>
+						<width>320</width>
+						<height>50</height>
+						<font>calendar14</font>
+						<align>left</align>
+						<aligny>center</aligny>
+						<selectedcolor>green</selectedcolor>
+						<info>ListItem.Label</info>
+						<textcolor>FFFFFFFF</textcolor>
+					</control>		
+				</focusedlayout>
+			</control>
+			
+		</control>
+		
+		
+		
+		
+		
+    
+		<!-- Add Calendar - Content Panel Group -->	
+      	
+      	
+    <control type="group" id="208">
+			<onleft>8990</onleft>
+			<onright>150</onright>
+			<onup>208</onup>
+			<ondown>20</ondown>
+      <visible>Skin.String(TabSettings,4)</visible>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+			
+			<control type="label">
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar30caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT22</label>
+			</control>	
+			
+			<control type="button" id="9001">
+				<description>Title Parameter - Add Calendar</description>
+				<posx>20</posx>
+				<posy>100</posy>
+				<width>400</width>
+				<height>65</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1220</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>9002</ondown>
+				<onup>9001</onup>
+			</control>
+			
+    		<control type="group" id="9002">
+    			<description>Color Parameter - Add Calendar</description>
+  				<width>420</width>
+  				<height>65</height>
+    			<posx>0</posx>
+    			<posy>165</posy>
+    			<visible></visible>
+    			
+    			<control type="button" id="9021">
+    				<description>Decrease Color Google Parameter - Add Calendar</description>
+    				<posx>370</posx>
+    				<posy>28</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-down.png</texturenofocus>
+    				<texturefocus>scroll-down-focus.png</texturefocus>
+    				<onleft>202</onleft>
+    				<onright>9022</onright>
+    				<ondown>9003</ondown>
+    				<onup>9001</onup>
+    			</control>
+    			
+    			<control type="button" id="9022">
+    				<description>Increase Color Google Parameter - Add Calendar</description>
+    				<posx>390</posx>
+    				<posy>30</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-up.png</texturenofocus>
+    				<texturefocus>scroll-up-focus.png</texturefocus>
+    				<onleft>9021</onleft>
+    				<onright>150</onright>
+    				<ondown>9003</ondown>
+    				<onup>9001</onup>
+    			</control>
+    			
+    			<control type="button" id="9023">
+    				<description>Label Color Google Parameter - Add Calendar</description>
+    				<posx>20</posx>
+    				<posy>0</posy>
+    				<width>345</width>
+    				<height>65</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label>SCRIPT1221</label>
+    				<label2></label2>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<texturefocus>-</texturefocus>
+    				<texturenofocus>-</texturenofocus>
+    				<onleft>202</onleft>
+    				<onright>9032</onright>
+    				<ondown>9004</ondown>
+    				<onup>9002</onup>
+    			</control>
+    			
+					<control type="image" id="9024">
+						<posx>370</posx>
+						<posy>0</posy>
+						<width>69</width>
+						<height>69</height>	
+						<texture>-</texture>
+			      <colordiffuse></colordiffuse>
+						<visible></visible>							
+					</control>	
+    			
+    		</control>
+			
+  		<control type="group" id="9003">
+  			<description>Type Parameter - Add Calendar</description>
+				<width>420</width>
+				<height>65</height>
+  			<posx>0</posx>
+  			<posy>230</posy>
+  			<visible></visible>
+  			
+  			<control type="button" id="9031">
+  				<description>Decrease Type Parameter - Add Calendar</description>
+  				<posx>370</posx>
+  				<posy>28</posy>
+  				<width>12</width>
+  				<height>12</height>
+  				<texturenofocus>scroll-down.png</texturenofocus>
+  				<texturefocus>scroll-down-focus.png</texturefocus>
+  				<onleft>8990</onleft>
+  				<onright>9032</onright>
+  				<ondown>9034</ondown>
+  				<onup>9002</onup>
+  			</control>
+  			
+  			<control type="button" id="9032">
+  				<description>Increase Type Parameter - Add Calendar</description>
+  				<posx>390</posx>
+  				<posy>30</posy>
+  				<width>12</width>
+  				<height>12</height>
+  				<texturenofocus>scroll-up.png</texturenofocus>
+  				<texturefocus>scroll-up-focus.png</texturefocus>
+  				<onleft>9031</onleft>
+  				<onright>150</onright>
+  				<ondown>9034</ondown>
+  				<onup>9002</onup>
+  			</control>
+  			
+  			<control type="button" id="9033">
+  				<description>Label Type Parameter - Add Calendar</description>
+  				<posx>20</posx>
+  				<posy>0</posy>
+  				<width>345</width>
+  				<height>65</height>
+  				<textoffsetx>15</textoffsetx>
+  				<label>SCRIPT1222</label>
+  				<label2></label2>
+  				<font>calendar14</font>
+  				<textcolor>ffffffff</textcolor>
+  				<colordiffuse>ffffffff</colordiffuse>
+  				<disabledcolor>60d0d0d0</disabledcolor>
+  				<aligny>center</aligny>
+  				<texturefocus>-</texturefocus>
+  				<texturenofocus>-</texturenofocus>
+  			</control>
+  			
+  		</control>
+  		
+  		<control type="group" id="9034">
+  		<control type="group" id="9004">
+  			<description>Google Parameter - Add Calendar</description>
+				<width>420</width>
+				<height>65</height>
+  			<posx>0</posx>
+  			<posy>295</posy>
+  			<visible></visible>
+  			
+    		<control type="group" id="9041">
+    			<description>Account Parameter - Add Calendar</description>
+  				<width>245</width>
+  				<height>50</height>
+    			<posx>0</posx>
+    			<posy>0</posy>
+    			<visible></visible>
+    			
+    			<control type="button" id="9042">
+    				<description>Decrease Account Parameter - Add Calendar</description>
+    				<posx>370</posx>
+    				<posy>28</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-down.png</texturenofocus>
+    				<texturefocus>scroll-down-focus.png</texturefocus>
+    				<onleft>8990</onleft>
+    				<onright>9043</onright>
+    				<ondown>9006</ondown>
+    				<onup>9003</onup>
+    			</control>
+    			
+    			<control type="button" id="9043">
+    				<description>Increase Account Parameter - Add Calendar</description>
+    				<posx>390</posx>
+    				<posy>30</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-up.png</texturenofocus>
+    				<texturefocus>scroll-up-focus.png</texturefocus>
+    				<onleft>9042</onleft>
+    				<onright>9005</onright>
+    				<ondown>9006</ondown>
+    				<onup>9003</onup>
+    			</control>
+    			
+    			<control type="button" id="9044">
+    				<description>Label Account Parameter - Add Calendar</description>
+    				<posx>20</posx>
+    				<posy>0</posy>
+    				<width>345</width>
+    				<height>65</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label>SCRIPT1224</label>
+    				<label2></label2>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<texturefocus>-</texturefocus>
+    				<texturenofocus>-</texturenofocus>
+    			</control>
+      		
+    			<control type="button" id="9005">
+    				<description>New Account Button - Add Calendar</description>
+    				<posx>405</posx>
+    				<posy>17</posy>
+    				<width>36</width>
+    				<height>36</height>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<align>center</align>
+    				<aligny>center</aligny>
+    				<texturefocus border="5">button-add-focus.png</texturefocus>
+    				<texturenofocus border="5">button-add.png</texturenofocus>
+    				<onleft>9043</onleft>
+    				<onright>150</onright>
+    				<ondown>9006</ondown>
+    				<onup>9003</onup>
+    			</control>
+    			
+    		</control>
+			
+		</control>
+			
+    		<control type="group" id="9006">
+    			<description>Calendar Google Parameter - Add Calendar</description>
+  				<width>420</width>
+  				<height>65</height>
+    			<posx>0</posx>
+    			<posy>360</posy>
+    			<visible></visible>
+    			
+    			<control type="button" id="9061">
+    				<description>Decrease Calendar Google Parameter - Add Calendar</description>
+    				<posx>370</posx>
+    				<posy>28</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-down.png</texturenofocus>
+    				<texturefocus>scroll-down-focus.png</texturefocus>
+    				<onleft>8990</onleft>
+    				<onright>9062</onright>
+    				<ondown>9010</ondown>
+    				<onup>9004</onup>
+    			</control>
+    			
+    			<control type="button" id="9062">
+    				<description>Increase Calendar Google Parameter - Add Calendar</description>
+    				<posx>390</posx>
+    				<posy>30</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-up.png</texturenofocus>
+    				<texturefocus>scroll-up-focus.png</texturefocus>
+    				<onleft>9061</onleft>
+    				<onright>9064</onright>
+    				<ondown>9010</ondown>
+    				<onup>9004</onup>
+    			</control>
+    			
+    			<control type="button" id="9063">
+    				<description>Label Calendar Google Parameter - Add Calendar</description>
+    				<posx>20</posx>
+    				<posy>0</posy>
+    				<width>345</width>
+    				<height>65</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label>SCRIPT1225</label>
+    				<label2></label2>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<texturefocus>-</texturefocus>
+    				<texturenofocus>-</texturenofocus>
+    			</control>
+    		
+    			<control type="button" id="9064">
+    				<description>New Calendar - Add Calendar</description>
+    				<posx>405</posx>
+    				<posy>17</posy>
+    				<width>36</width>
+    				<height>36</height>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<align>center</align>
+    				<aligny>center</aligny>
+    				<texturefocus border="5">button-add-focus.png</texturefocus>
+    				<texturenofocus border="5">button-add.png</texturenofocus>
+    				<onleft>9062</onleft>
+    				<onright>150</onright>
+    				<ondown>9010</ondown>
+    				<onup>9004</onup>
+    			</control>
+    			
+    		</control>
+  			
+  			<control type="button" id="9009">
+  				<description>Url Button - Add Calendar</description>
+  				<posx>20</posx>
+  				<posy>295</posy>
+  				<width>400</width>
+  				<height>65</height>
+  				<textoffsetx>15</textoffsetx>
+  				<label>SCRIPT1223</label>
+  				<font>calendar14</font>
+  				<textcolor>ffffffff</textcolor>
+  				<colordiffuse>ffffffff</colordiffuse>
+  				<disabledcolor>60d0d0d0</disabledcolor>
+  				<shadowcolor>FF000000</shadowcolor>
+  				<align>left</align>
+  				<aligny>center</aligny>
+  				<texturefocus>MenuItemFO.png</texturefocus>
+  				<texturenofocus>MenuItemNF.png</texturenofocus>
+  				<onleft>8990</onleft>
+  				<onright>150</onright>
+  				<ondown>9010</ondown>
+  				<onup>9004</onup>
+  			</control>
+  			</control>
+  			
+  			<control type="button" id="9010">
+  				<description>Button Validation - Add Calendar</description>
+  				<posx>370</posx>
+  				<posy>441</posy>
+  				<width>32</width>
+  				<height>32</height>
+  				<textoffsetx>15</textoffsetx>
+  				<label></label>
+  				<font>calendar14</font>
+  				<textcolor>ffffffff</textcolor>
+  				<colordiffuse>ffffffff</colordiffuse>
+  				<disabledcolor>60d0d0d0</disabledcolor>
+  				<aligny>center</aligny>
+  				<align>center</align>
+  				<texturefocus>Validate-focus.png</texturefocus>
+  				<texturenofocus>Validate.png</texturenofocus>
+  				<visible>True</visible>
+  				<onleft>8990</onleft>
+  				<onright>150</onright>
+  				<ondown>204</ondown>
+  				<onup>9034</onup>
+  			</control>
+  			
+  		</control>
+		
+    <control type="group" id="209">
+			<onleft>8990</onleft>
+			<onright>150</onright>
+			<onup>9001</onup>
+			<ondown>20</ondown>
+      <visible>Skin.String(TabSettings,5)</visible>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+			
+			<control type="label">
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar30caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT24</label>
+			</control>	
+			
+			<control type="button" id="9101">
+				<description>Title Parameter - Add Calendar</description>
+				<posx>20</posx>
+				<posy>100</posy>
+				<width>400</width>
+				<height>65</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1220</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>9102</ondown>
+				<onup>209</onup>
+			</control>
+			
+    		<control type="group" id="9102">
+    			<description>Color Parameter - Add Calendar</description>
+  				<width>420</width>
+  				<height>65</height>
+    			<posx>0</posx>
+    			<posy>165</posy>
+    			<visible></visible>
+    			
+    			<control type="button" id="9121">
+    				<description>Decrease Color Google Parameter - Add Calendar</description>
+    				<posx>370</posx>
+    				<posy>28</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-down.png</texturenofocus>
+    				<texturefocus>scroll-down-focus.png</texturefocus>
+    				<onleft>8990</onleft>
+    				<onright>9122</onright>
+    				<ondown>9131</ondown>
+    				<onup>9101</onup>
+    			</control>
+    			
+    			<control type="button" id="9122">
+    				<description>Increase Color Google Parameter - Add Calendar</description>
+    				<posx>390</posx>
+    				<posy>30</posy>
+    				<width>12</width>
+    				<height>12</height>
+    				<texturenofocus>scroll-up.png</texturenofocus>
+    				<texturefocus>scroll-up-focus.png</texturefocus>
+    				<onleft>9121</onleft>
+    				<onright>150</onright>
+    				<ondown>9131</ondown>
+    				<onup>9101</onup>
+    			</control>
+    			
+    			<control type="button" id="9123">
+    				<description>Label Color Google Parameter - Add Calendar</description>
+    				<posx>20</posx>
+    				<posy>0</posy>
+    				<width>345</width>
+    				<height>65</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label>SCRIPT1221</label>
+    				<label2></label2>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<texturefocus>-</texturefocus>
+    				<texturenofocus>-</texturenofocus>
+    				<onleft>202</onleft>
+    				<onright>9032</onright>
+    				<ondown>9004</ondown>
+    				<onup>9002</onup>
+    			</control>
+    			
+					<control type="image" id="9124">
+						<posx>370</posx>
+						<posy>0</posy>
+						<width>69</width>
+						<height>69</height>	
+						<texture>-</texture>
+			      <colordiffuse></colordiffuse>
+						<visible></visible>							
+					</control>	
+    			
+    		</control>
+			
+      		<control type="group" id="9131">
+      			<description>Color Parameter - Add Calendar</description>
+    				<width>420</width>
+    				<height>65</height>
+      			<posx>20</posx>
+      			<posy>230</posy>
+    			
+      			<control type="button" id="91310">
+      				<description>Button Validation - Show Calendar - Unstar</description>
+      				<posx>0</posx>
+      				<posy>0</posy>
+      				<width>420</width>
+      				<height>65</height>
+      				<textoffsetx>15</textoffsetx>
+      				<label>SCRIPT1213</label>
+      				<font>calendar14</font>
+      				<textcolor>ffffffff</textcolor>
+      				<colordiffuse>ffffffff</colordiffuse>
+      				<disabledcolor>60d0d0d0</disabledcolor>
+      				<aligny>center</aligny>
+      				<texturefocus>unstar-FO.png</texturefocus>
+      				<texturenofocus>unstar-NF.png</texturenofocus>
+              <visible>Skin.String(starCalendar,0)</visible>
+      				<onleft>8990</onleft>
+      				<onright>150</onright>
+      				<ondown>9103</ondown>
+      				<onup>9102</onup>
+      			</control>
+    			
+      			<control type="button" id="91311">
+      				<description>Button Validation - Show Calendar - Star</description>
+      				<posx>0</posx>
+      				<posy>0</posy>
+      				<width>420</width>
+      				<height>65</height>
+      				<textoffsetx>15</textoffsetx>
+      				<label>SCRIPT1214</label>
+      				<font>calendar14</font>
+      				<textcolor>ffffffff</textcolor>
+      				<colordiffuse>ffffffff</colordiffuse>
+      				<disabledcolor>60d0d0d0</disabledcolor>
+      				<aligny>center</aligny>
+      				<texturefocus>star-FO.png</texturefocus>
+      				<texturenofocus>star-NF.png</texturenofocus>
+              <visible>Skin.String(starCalendar,1)</visible>
+      				<onleft>8990</onleft>
+      				<onright>150</onright>
+      				<ondown>9103</ondown>
+      				<onup>9102</onup>
+      			</control>
+      		</control>
+			
+    		<control type="group" id="9103">
+    			<description>Color Parameter - Add Calendar</description>
+  				<width>420</width>
+  				<height>65</height>
+    			<posx>0</posx>
+    			<posy>440</posy>
+    			<visible></visible>
+  			
+    			<control type="button" id="9134">
+    				<description>Button Validation - Update Calendar</description>
+    				<posx>400</posx>
+    				<posy>0</posy>
+    				<width>32</width>
+    				<height>32</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<align>center</align>
+    				<texturefocus>Validate-focus.png</texturefocus>
+    				<texturenofocus>Validate.png</texturenofocus>
+            <visible></visible>
+    				<onleft>9132</onleft>
+    				<onright>150</onright>
+    				<ondown>209</ondown>
+    				<onup>9131</onup>
+    			</control>
+  			
+    			<control type="button" id="9132">
+    				<description>Button Validation - Delete Calendar</description>
+    				<posx>350</posx>
+    				<posy>0</posy>
+    				<width>32</width>
+    				<height>32</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<align>center</align>
+    				<texturefocus>button-delete-calendar-FO.png</texturefocus>
+    				<texturenofocus>button-delete-calendar-NF.png</texturenofocus>
+            <visible>True</visible>
+    				<onleft>9133</onleft>
+    				<onright>9134</onright>
+    				<ondown>209</ondown>
+    				<onup>9131</onup>
+    			</control>
+  			
+    			<control type="button" id="9133">
+    				<description>Button Validation - Update Account</description>
+    				<posx>300</posx>
+    				<posy>0</posy>
+    				<width>32</width>
+    				<height>32</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<align>center</align>
+    				<texturefocus>modAccount-FO.png</texturefocus>
+    				<texturenofocus>modAccount-NF.png</texturenofocus>
+            <visible>Skin.String(delAccount,1)</visible>
+    				<onleft>8990</onleft>
+    				<onright>9132</onright>
+    				<ondown>209</ondown>
+    				<onup>9131</onup>
+    			</control>
+    			
+    		</control>
+      	
+		</control>	
+		
+    <control type="group" id="210">
+			<onleft>8990</onleft>
+			<onright>150</onright>
+			<onup>210</onup>
+			<ondown>20</ondown>
+      <visible>Skin.String(TabSettings,6)</visible>
+    
+			<animation effect="fade" time="1000">VisibleChange</animation>
+			
+			<control type="label">
+				<description>Event Panel Title</description>
+				<width>400</width>
+				<posx>25</posx>
+				<posy>50</posy>
+				<align>center</align>
+				<aligny>center</aligny>
+				<font>calendar30caps_title</font>
+				<textcolor>FF29527A</textcolor>
+				<label>SCRIPT27</label>
+			</control>	
+			
+			<control type="button" id="9201">
+				<description>Title Parameter - Add Calendar</description>
+				<posx>20</posx>
+				<posy>100</posy>
+				<width>400</width>
+				<height>65</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1220</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>9202</ondown>
+				<onup>230</onup>
+			</control>
+			
+			<control type="button" id="9202">
+				<description>Title Parameter - Add Calendar</description>
+				<posx>20</posx>
+				<posy>165</posy>
+				<width>400</width>
+				<height>65</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1220</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>9203</ondown>
+				<onup>9201</onup>
+			</control>
+			
+			<control type="button" id="9203">
+				<description>Title Parameter - Add Calendar</description>
+				<posx>20</posx>
+				<posy>230</posy>
+				<width>400</width>
+				<height>65</height>
+				<textoffsetx>15</textoffsetx>
+				<label>SCRIPT1220</label>
+				<font>calendar14</font>
+				<textcolor>ffffffff</textcolor>
+				<colordiffuse>ffffffff</colordiffuse>
+				<disabledcolor>60d0d0d0</disabledcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<align>left</align>
+				<aligny>center</aligny>
+				<texturefocus>MenuItemFO.png</texturefocus>
+				<texturenofocus>MenuItemNF.png</texturenofocus>
+				<onleft>8990</onleft>
+				<onright>150</onright>
+				<ondown>9240</ondown>
+				<onup>9202</onup>
+			</control>
+			
+    		<control type="group" id="9204">
+    			<description>Color Parameter - Add Calendar</description>
+  				<width>420</width>
+  				<height>65</height>
+    			<posx>0</posx>
+    			<posy>440</posy>
+    			<visible></visible>
+  			
+    			<control type="button" id="9241">
+    				<description>Button Validation - Delete Account</description>
+    				<posx>350</posx>
+    				<posy>0</posy>
+    				<width>32</width>
+    				<height>32</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<align>center</align>
+    				<texturefocus>button-delete-account-FO.png</texturefocus>
+    				<texturenofocus>button-delete-account-NF.png</texturenofocus>
+            <visible>Skin.String(delAccount,1)</visible>
+    				<onleft>8990</onleft>
+    				<onright>9240</onright>
+    				<ondown>210</ondown>
+    				<onup>9203</onup>
+    			</control>
+  			
+    			<control type="button" id="9240">
+    				<description>Button Validation - Update Calendar</description>
+    				<posx>400</posx>
+    				<posy>0</posy>
+    				<width>32</width>
+    				<height>32</height>
+    				<textoffsetx>15</textoffsetx>
+    				<label></label>
+    				<font>calendar14</font>
+    				<textcolor>ffffffff</textcolor>
+    				<colordiffuse>ffffffff</colordiffuse>
+    				<disabledcolor>60d0d0d0</disabledcolor>
+    				<aligny>center</aligny>
+    				<align>center</align>
+    				<texturefocus>Validate-focus.png</texturefocus>
+    				<texturenofocus>Validate.png</texturenofocus>
+            <visible></visible>
+    				<onleft>9241</onleft>
+    				<onright>150</onright>
+    				<ondown>210</ondown>
+    				<onup>9203</onup>
+    			</control>
+    			
+    		</control>
+      	
+		</control>	
+		
+		</control>	
+
+		</control>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+
+
+		<!-- weather Info -->
+		<control type="group">
+			<description>Weather group</description>
+			<posx>510r</posx>
+			<posy>0</posy>
+			<animation effect="slide" start="0,0" end="-60,0" delay="0" time="300" condition="Window.IsVisible(MuteBug)">conditional</animation>
+			<animation effect="slide" start="0,0" end="510,0" delay="0" time="300">WindowClose</animation>
+			<animation effect="slide" start="510,0" end="0,0" delay="0" time="300">WindowOpen</animation>
+			<visible>!Skin.HasSetting(homepageWeatherinfo) + Weather.IsFetched</visible>
+			<control type="image">
+				<description>Weather background</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>180</width>
+				<height>35</height>
+				<texture flipx="true" border="32,0,0,0">header.png</texture>
+			</control>
+			<control type="image">
+				<description>Weather image</description>
+				<posx>30</posx>
+				<posy>1</posy>
+				<width>25</width>
+				<height>25</height>
+				<aspectratio>keep</aspectratio>
+				<texture>$INFO[Weather.Conditions]</texture>
+			</control>
+			<!--<visible>Skin.HasSetting(animated-weather)</visible>
+			<control type="multiimage">
+				<description>Weather animated image</description>
+				<posx>30</posx>
+				<posy>1</posy>
+				<width>25</width>
+				<height>25</height>
+				<aspectratio>keep</aspectratio>
+				<imagepath>special://skin/animated-weather-icons/$INFO[Window(Weather).Property(Current.FanartCode)]</imagepath>
+				<timeperimage>100</timeperimage>
+				<randomize>false</randomize>
+				<fadetime>0</fadetime>
+				<visible>!Skin.HasSetting(animated-weather)</visible>
+			</control>-->
+			<control type="label">
+				<description>Weather label</description>
+				<posx>60</posx>
+				<posy>0</posy>
+				<width>100</width>
+				<height>28</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>calendar12</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<label>[B]$INFO[Weather.Temperature][/B]</label>
+			</control>
+		</control>
+
+		<control type="group" id="8990">
+			<description>Main menu and submenu group</description>
+			<animation effect="slide" end="-370,0" time="500" tween="quadratic" easing="out">WindowClose</animation>
+			<animation effect="slide" start="-370,0" time="500" tween="quadratic" easing="out">WindowOpen</animation>
+			<animation effect="slide" start="-370,0" time="500" tween="quadratic" easing="out">Focus</animation>
+			<animation effect="slide" end="-370,0" time="500" tween="quadratic" easing="out">Unfocus</animation>
+			<control type="group">
+				<animation effect="slide" end="-228,0" time="300" tween="quadratic" easing="out">WindowClose</animation>
+				<control type="image">
+					<posx>379</posx>
+					<posy>0</posy>
+					<width>1</width>
+					<height>720</height>
+					<texture>HomeBladeSub_Part1.png</texture>
+					<animation effect="zoom" start="379,0,1,720" end="379,0,249,720" time="300" tween="quadratic" easing="out" condition="ControlGroup(10001).HasFocus">Conditional</animation>
+				</control>
+				<control type="image">
+					<posx>380</posx>
+					<posy>0</posy>
+					<width>12</width>
+					<height>720</height>
+					<texture>HomeBladeSub_Part2.png</texture>
+					<animation effect="slide" end="248,0" time="300" tween="quadratic" easing="out" condition="ControlGroup(10001).HasFocus">Conditional</animation>
+				</control>
+			</control>
+
+			<control type="group" id="10001">
+				<description>Submenu group</description>
+				<posx>170</posx>
+				<posy>180</posy>
+				<animation effect="fade" start="100" end="0" time="0" condition="Window.IsVisible(progressdialog) | !ControlGroup(10001).HasFocus">conditional</animation>
+				<animation effect="fade" start="0" end="100" delay="300" time="200" condition="ControlGroup(10001).HasFocus">conditional</animation>
+				<animation effect="fade" start="100" end="0" time="0" condition="ControlGroup(10001).HasFocus">WindowClose</animation>
+				<animation effect="slide" end="210,0" time="300" tween="quadratic" easing="out" condition="ControlGroup(10001).HasFocus">conditional</animation>
+				<animation effect="slide" end="0,-204" time="300" condition="Container(9000).Row(1)">conditional</animation>
+				<animation effect="slide" end="0,-102" time="300" condition="Container(9000).Row(2)">conditional</animation>
+				<animation effect="slide" end="0,102" time="300" condition="Container(9000).Row(4)">conditional</animation>
+				<animation effect="slide" end="0,204" time="300" condition="Container(9000).Row(5)">conditional</animation>
+        <!--
+				<control type="grouplist" id="9010">
+					<description>manager sub buttons</description>
+					<posx>10</posx>
+					<posy>0</posy>
+					<width>260</width>
+					<height>360</height>
+					<align>center</align>
+					<onleft>9000</onleft>
+					<onright>202</onright>
+					<onup>9010</onup>
+					<ondown>9010</ondown>
+					<itemgap>0</itemgap>
+					<visible>Container(9000).HasFocus(3)</visible>
+					<control type="button" id="90101">
+						<description>view calendars button</description>
+						<height>40</height>
+						<width>241</width>
+						<textoffsetx>20</textoffsetx>
+						<textwidth>215</textwidth>
+						<aligny>center</aligny>
+						<font>calendar12_title</font>
+						<texturefocus border="5">button-focus.png</texturefocus>
+						<texturenofocus border="5">button-nofocus.png</texturenofocus>
+						<pulseonselect>false</pulseonselect>
+						<label>SCRIPT11</label>
+            <onclick>Skin.SetString(TabSettings,4)</onclick>
+					</control>
+					<control type="button" id="90103">
+						<description>modify calendars button</description>
+						<height>40</height>
+						<width>241</width>
+						<textoffsetx>20</textoffsetx>
+						<textwidth>215</textwidth>
+						<aligny>center</aligny>
+						<font>calendar12_title</font>
+						<texturefocus border="5">button-focus.png</texturefocus>
+						<texturenofocus border="5">button-nofocus.png</texturenofocus>
+						<pulseonselect>false</pulseonselect>
+						<label>SCRIPT12</label>
+            <onclick>Skin.SetString(TabSettings,3)</onclick>
+					</control>
+				</control>
+				<!--<control type="grouplist" id="9020">
+					<description>manager sub buttons</description>
+					<posx>10</posx>
+					<posy>0</posy>
+					<width>260</width>
+					<height>360</height>
+					<align>center</align>
+					<onleft>9000</onleft>
+					<onright>202</onright>
+					<onup>9010</onup>
+					<ondown>9010</ondown>
+					<itemgap>0</itemgap>
+					<visible>Container(9000).HasFocus(2)</visible>
+					<control type="button" id="90201">
+						<description>view calendars button</description>
+						<height>40</height>
+						<width>241</width>
+						<textoffsetx>20</textoffsetx>
+						<textwidth>215</textwidth>
+						<aligny>center</aligny>
+						<font>calendar12_title</font>
+						<texturefocus border="5">button-focus.png</texturefocus>
+						<texturenofocus border="5">button-nofocus.png</texturenofocus>
+						<pulseonselect>false</pulseonselect>
+						<label>SCRIPT10</label>
+            <onclick>Skin.SetString(TabSettings,1)</onclick>
+					</control>
+					<control type="button" id="90202">
+						<description>add calendars button</description>
+						<height>40</height>
+						<width>241</width>
+						<textoffsetx>20</textoffsetx>
+						<textwidth>215</textwidth>
+						<aligny>center</aligny>
+						<font>calendar12_title</font>
+						<texturefocus border="5">button-focus.png</texturefocus>
+						<texturenofocus border="5">button-nofocus.png</texturenofocus>
+						<pulseonselect>false</pulseonselect>
+						<label>SCRIPT11</label>
+					</control>
+				</control>-->
+			</control>
+
+			<control type="image">
+				<posx>-450</posx>
+				<posy>0</posy>
+				<width>846</width>
+				<height>720</height>
+				<colordiffuse>DAFFFFFF</colordiffuse>
+				<texture>HomeBlade_bottom.png</texture>
+			</control>
+			<control type="fixedlist" id="9000">
+				<description>Main menu buttons</description>
+				<hitrect x="50" y="50" w="330" h="620" />
+				<posx>-20</posx>
+				<posy>0</posy>
+				<width>400</width>
+				<height>720</height>
+				<onleft>202</onleft>
+				<onright>10001</onright>
+				<onup>9000</onup>
+				<ondown>9000</ondown>
+				<pagecontrol>-</pagecontrol>
+				<scrolltime>300</scrolltime>
+				<focusposition>3</focusposition>
+				<movement>2</movement>
+				<animation effect="fade" start="0" end="100" time="200">Visible</animation>
+				<animation effect="fade" start="100" end="30" time="200" condition="Window.IsVisible(1113) | ControlGroup(10001).HasFocus | ControlGroup(10).HasFocus | Control.HasFocus(8000) | Control.HasFocus(8001)">conditional</animation>
+				<itemlayout height="102" width="380">
+					<control type="label">
+						<posx>380</posx>
+						<posy>21</posy>
+						<width>380</width>
+						<height>40</height>
+						<font>calendar45caps_title</font>
+						<textcolor>33FFFFFF</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<label>$INFO[ListItem.Label]</label>
+						<animation effect="zoom" start="65" end="65" center="380,51" time="0" condition="true">Conditional</animation>
+						<animation effect="fade" start="100" end="30" time="200" condition="Window.IsVisible(1113) | ControlGroup(10001).HasFocus | ControlGroup(10).HasFocus">conditional</animation>
+					</control>
+				</itemlayout>
+				<focusedlayout height="102" width="380">
+					<control type="label">
+						<posx>380</posx>
+						<posy>21</posy>
+						<width>380</width>
+						<height>40</height>
+						<font>calendar45caps_title</font>
+						<textcolor>FFFFFFFF</textcolor>
+						<align>right</align>
+						<aligny>center</aligny>
+						<animation effect="zoom" start="65" end="100" center="380,51" time="200">Focus</animation>
+						<animation effect="zoom" start="100" end="65" center="380,51" time="200">UnFocus</animation>
+						<label>$INFO[ListItem.Label]</label>
+					</control>
+					<control type="image">
+						<posx>370</posx>
+						<posy>63</posy>
+						<width>18</width>
+						<height>18</height>
+						<texture>HomeHasSub.png</texture><!--
+						<visible>Container(9000).HasFocus(3) | Container(9000).HasFocus(3)</visible>-->
+						<visible>False</visible>
+						<animation effect="fade" start="0" end="100" time="200">Focus</animation>
+						<animation effect="fade" start="100" end="0" time="200">UnFocus</animation>
+					</control>
+				</focusedlayout>
+				<!-- content item not work in onClick( self, controlID ) -->
+				<!-- but use <onclick>SetProperty(Container_9000_item_id,int)</onclick> and in onAction( self, action ) -->
+				<!-- use if self.getFocusId() == 9000: print self.getProperty( "Container_9000_item_id" ) -->
+				<content>
+					<item id="1">
+						<label>SCRIPT1</label>
+						<onclick>SetProperty(Container_9000_item_id,1)</onclick>
+						<icon>WP-Actualiser.jpg</icon>
+						<thumb>$INFO[Skin.String(Script_calendar_Back_Pictures_Folder)]</thumb>
+					</item>
+					<item id="2">
+						<label>SCRIPT2</label>
+						<onclick>SetProperty(Container_9000_item_id,2)</onclick>
+            <onclick>Skin.SetString(TabSettings,1)</onclick>
+            <onclick>Skin.SetString(scriptbackground,WP-Events.jpg)</onclick>
+            <onclick>Control.SetFocus(8801,0) </onclick>
+						<icon>WP-Events.jpg</icon>
+						<thumb>$INFO[Skin.String(Script_calendar_Back_Video_Folder)]</thumb>
+					</item>
+					<item id="3">
+						<label>SCRIPT3</label>
+						<onclick>SetProperty(Container_9000_item_id,3)</onclick>
+            <onclick>Skin.SetString(TabSettings,3)</onclick>
+            <onclick>Skin.SetString(scriptbackground,WP-Afficher.jpg)</onclick>
+            <onclick>Control.SetFocus(8901,0) </onclick>
+						<icon>WP-Afficher.jpg</icon>
+						<thumb>$INFO[Skin.String(Script_calendar_Back_Video_Folder)]</thumb>
+					</item>
+					<item id="4">
+						<label>SCRIPT4</label>
+						<onclick>SetProperty(Container_9000_item_id,4)</onclick>
+            <onclick>Skin.SetString(scriptbackground,WP-Exit.jpg)</onclick>
+						<icon>WP-Exit.jpg</icon>
+						<!--<thumb>$INFO[Skin.String(Script_calendar_Back_Settings_Folder)]</thumb>-->
+					</item>
+				</content>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>-205</posy>
+				<width>385</width>
+				<height>1130</height>
+				<texture>HomeBlade_middle.png</texture>
+				<animation effect="slide" end="0,-204" time="300" condition="Container(9000).Row(1)">conditional</animation>
+				<animation effect="slide" end="0,-102" time="300" condition="Container(9000).Row(2)">conditional</animation>
+				<animation effect="slide" end="0,102" time="300" condition="Container(9000).Row(4)">conditional</animation>
+				<animation effect="slide" end="0,204" time="300" condition="Container(9000).Row(5)">conditional</animation>
+			</control>
+
+			<control type="image">
+				<posx>-450</posx>
+				<posy>0</posy>
+				<width>846</width>
+				<height>720</height>
+				<texture>HomeBlade_top.png</texture>
+			</control>
+			<control type="image">
+				<description>LOGO Mirror</description>
+				<posx>220</posx>
+				<posy>130</posy>
+				<width>100</width>
+				<height>50</height>
+				<texture diffuse="diffuse_mirror.png" flipy="true">passion.png</texture>
+			</control>
+			<control type="image">
+				<description>TITLE</description>
+				<posx>80</posx>
+				<posy>80</posy>
+				<width>224</width>
+				<height>55</height>
+				<texture>calendar.png</texture>
+			</control>
+			<control type="image">
+				<description>TITLE Mirror</description>
+				<posx>80</posx>
+				<posy>102</posy>
+				<width>224</width>
+				<height>55</height>
+				<texture diffuse="diffuse_mirror.png" flipy="true">calendar.png</texture>
+			</control>
+			<control type="image">
+				<posx>0</posx>
+				<posy>100r</posy>
+				<width>256</width>
+				<height>100</height>
+				<texture>HomeButtonsBack.png</texture>
+			</control>
+
+			<control type="group" id="10">
+				<posx>15</posx>
+				<posy>55r</posy>
+				<control type="button" id="20">
+					<description>Power push button</description>
+					<posx>0</posx>
+					<posy>0</posy>
+					<width>43</width>
+					<height>43</height>
+					<label>-</label>
+					<font>-</font>
+					<aligny>-</aligny>
+					<texturefocus>home-power-FO.png</texturefocus>
+					<texturenofocus>home-power.png</texturenofocus>
+					<onleft>204</onleft>
+					<onright>204</onright>
+					<onup>9000</onup>
+					<ondown>9000</ondown>
+				</control>
+			</control>
+		</control>
+
+		<control type="group" id="1000">
+			<posx>420</posx>
+			<posy>35r</posy>
+			<animation effect="slide" end="0,35" time="300" tween="quadratic" easing="out">WindowClose</animation>
+			<animation effect="slide" start="0,35" time="300" tween="quadratic" easing="out">WindowOpen</animation>
+			<visible>system.getbool(lookandfeel.enablerssfeeds)</visible>
+			<control type="image">
+				<description>RSS background</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>860</width>
+				<height>35</height>
+				<texture border="32,0,0,0">Rss_Back.png</texture>
+			</control>
+			<control type="rss">
+				<description>RSS feed</description>
+				<posx>35</posx>
+				<posy>6</posy>
+				<height>35</height>
+				<width>825</width>
+				<font>calendar12</font>
+				<urlset>100</urlset><!-- if not exists, auto created/updated on start script -->
+				<textcolor>FF0055be</textcolor>
+				<titlecolor>FF0055be</titlecolor>
+				<headlinecolor>ffffffff</headlinecolor>
+			</control>
+			<control type="image">
+				<description>RSS background</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>100</width>
+				<height>35</height>
+				<texture border="32,0,0,0">Rss_Back_Overlay.png</texture>
+			</control>
+		</control>
+
+		<control type="group">
+			<posx>380r</posx>
+			<posy>0</posy>
+			<animation effect="slide" start="0,0" end="-60,0" delay="0" time="300" condition="Window.IsVisible(MuteBug)">conditional</animation>
+			<animation effect="slide" start="0,0" end="380,0" delay="0" time="300">WindowClose</animation>
+			<animation effect="slide" start="380,0" end="0,0" delay="0" time="300">WindowOpen</animation>
+			<control type="image">
+				<description>time background</description>
+				<posx>0</posx>
+				<posy>0</posy>
+				<width>440</width>
+				<height>35</height>
+				<texture flipx="true" border="32,0,0,0">header.png</texture>
+			</control>
+			<control type="label">
+				<description>time label</description>
+				<posx>30</posx>
+				<posy>0</posy>
+				<width>400</width>
+				<height>28</height>
+				<align>left</align>
+				<aligny>center</aligny>
+				<font>calendar12</font>
+				<textcolor>FFFFFFFF</textcolor>
+				<shadowcolor>FF000000</shadowcolor>
+				<label>[COLOR=FFb4b4b4]$INFO[System.Date][/COLOR] | $INFO[System.Time]</label>
+			</control>
+		</control>
+
+		<control type="image">
+			<posx>1289</posx>
+			<posy>0</posy>
+			<width>846</width>
+			<height>720</height>
+			<texture flipx="true">HomeBlade.png</texture>
+			<animation effect="slide" end="-35,0" time="300" tween="quadratic" easing="out">WindowClose</animation>
+			<animation effect="slide" start="-35,0" time="300" tween="quadratic" easing="out" condition="!Window.Previous(startup)">WindowOpen</animation>
+		</control>		
+		
+		
+		
+	</controls>
+</window>

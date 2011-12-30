@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+  <strings>
+  <!-- MAIN MENU -->
+  <string id="0">Kalender</string>
+  <string id="1">Uppdatera</string>
+  <string id="2">Händelser</string>
+  <string id="3">Kalendrar</string>
+  <string id="4">Avsluta</string>
+  <string id="5">till</string>
+  <!-- SUB MENU -->
+  <string id="10">Visa</string>
+  <string id="11">Lägg till</string>
+  <string id="12">Uppdatera</string>
+  <!-- Titles ->
+  <string id="20">IDAG</string>
+  <string id="21">UPPDATERA EN KALENDER</string>
+  <string id="22">LÄGG TILL EN KALENDER</string>
+  <string id="23">LÄGG TILL EN HÄNDELSE</string>
+  <string id="24">UPPDATERA EN KALENDER</string>
+  <string id="25">UPPDATERA EN HÄNDELSE</string>
+  <string id="26">TA BORT EN HÄNDELSE</string>
+  <string id="27">UPPDATERA ETT KONTO</string>
+  <!-- Dialog -->
+  <string id="30">Laddar kalendrar...</string>
+  <!-- Calendars months -->
+  <string id="101">Januari</string>
+  <string id="102">Februari</string>
+  <string id="103">Mars</string>
+  <string id="104">April</string>
+  <string id="105">Maj</string>
+  <string id="106">Juni</string>
+  <string id="107">Juli</string>
+  <string id="108">Augusti</string>
+  <string id="109">September</string>
+  <string id="110">Oktober</string>
+  <string id="111">November</string>
+  <string id="112">December</string>
+  <!-- Calendars days -->
+  <string id="121">Måndag</string>
+  <string id="122">Tisdag</string>
+  <string id="123">Onsdag</string>
+  <string id="124">Torsdag</string>
+  <string id="125">Fredag</string>
+  <string id="126">Lördag</string>
+  <string id="127">Söndag</string>
+  <!-- Calendars days abr -->
+  <string id="131">Mån.</string>
+  <string id="132">Tis.</string>
+  <string id="133">Ons.</string>
+  <string id="134">Tors.</string>
+  <string id="135">Fre.</string>
+  <string id="136">Lör.</string>
+  <string id="137">Sön.</string>
+  <!-- Calendars colors -->
+  <string id="141">Röd</string>
+  <string id="142">Rosa</string>
+  <string id="143">Violett</string>
+  <string id="144">Lila</string>
+  <string id="145">Marin</string>
+  <string id="146">Blå</string>
+  <string id="147">Turkos</string>
+  <string id="148">Grön</string>
+  <string id="149">Lime</string>
+  <string id="150">Orange</string>
+  <string id="151">Brun</string>
+  <!-- Show Events Panel -->
+  <string id="1210">Idag</string>
+  <string id="1211">till</string>
+  <string id="1212">Hela Dagen</string>
+  <string id="1213">Visa :</string>
+  <string id="1214">Dölj :</string>
+  <!-- Add Calendar Panel -->
+  <string id="1220">Titel :</string>
+  <string id="1221">Färg :</string>
+  <string id="1222">Typ :</string>
+  <string id="1223">Sökväg :</string>
+  <string id="1224">Konto :</string>
+  <string id="1225">Kalender :</string>
+  <!-- Add Calendar Dialog -->
+  <string id="1320">Titel</string>
+  <string id="1321">Användarnamn</string>
+  <string id="1322">Lösenord</string>
+  <string id="1323">Kontrollera användarnamn och lösenord</string>
+  <!-- Add Event Panel -->
+  <string id="1230">Kalender :</string>
+  <string id="1231">Titel :</string>
+  <string id="1232">Startdatum :</string>
+  <string id="1233">Starttid :</string>
+  <string id="1234">Slutdatum :</string>
+  <string id="1235">Sluttid :</string>
+  <string id="1236">Alternativ :</string>
+  <string id="1237">Återkommande slutar :</string>
+  <string id="1250">Händelse titel</string>
+  <string id="1251">Heldags händelse</string>
+  <string id="1252">Startdatum (ÅÅÅÅMMDD) :</string>
+  <string id="1253">Starttid (TTMM) :</string>
+  <string id="1254">Slutdatum (ÅÅMMDD) :</string>
+  <string id="1255">Sluttid (TTMM) :</string>
+  <string id="1256">Händelsens plats</string>
+  <string id="1257">Händelse beskrivning</string>
+  <string id="1258">Händelsens upprepning</string>
+  <string id="1259">Upprepningens slut (ÅÅÅÅMMDD) :</string>
+  <!-- Add Event Recurrence -->
+  <string id="1260">Ingen</string>
+  <string id="1261">Dagligen</string>
+  <string id="1262">Varje vecka</string>
+  <string id="1263">Varje månad</string>
+  <string id="1264">Varje år</string>
+  <string id="1265">Händelsens upprepning</string>
+  <string id="1266">Kan inte uppdatera denna information</string>
+  <!-- Add Event Error -->
+  <string id="1270">Fel</string>
+  <string id="1271">Icke giltigt format</string>
+  <string id="1272">Odefinierad</string>
+  <string id="1273">Odefinierad</string>
+  <string id="1274">Lyckades lägga till händelse</string>
+  <string id="1275">Händelse uppdatering</string>
+  <string id="1276">Lyckades uppdatera händelse</string>
+  <string id="1277">Lyckades radera händelse</string>
+  <string id="1278">Kan inte uppdatera händelse</string>
+  <string id="1279">Kan inte ta bort händelse</string>
+  <string id="1280">Vill du uppdatera händelsen</string>
+  <string id="1281">Vill du radera händelsen</string>
+  <string id="1282">Inkonsekventa start-och slutdatum</string>
+  <string id="1283">Lägga till kalendern</string>
+  <string id="1284">Välj den kalendern</string>
+  <string id="1285">Lyckades</string>
+  <string id="1286">Lyckades lägga till kalender</string>
+  <string id="1287">Ogiltig sökväg</string>
+  <string id="1288">Saknar sökväg</string>
+  <string id="1289">Var god ändra sökväg</string>
+  <string id="1290">Titel saknas</string>
+  <string id="1291">Var god ändra titel</string>
+  <!-- Add Event Panel -->
+  <string id="1240">Titel :</string>
+  <string id="1241">Färg :</string>
+  <!-- Add Calendar Keyboard -->
+  <string id="1301">Kalender namn</string>
+  <string id="1302">till</string>
+  <string id="1303">Hela dagen</string>
+  <!-- Mod Calendar ContextMenu -->
+  <string id="2001">Sluta uppdatera kalender</string>
+  <string id="2002">Sluta uppdatera Google konto</string>
+  <string id="2003">Kalender</string>
+  <string id="2004">Radera kalender ?</string>
+  <string id="2005">Ändra kalender ?</string>
+  <!-- Mod Account ContextMenu -->
+  <string id="2101">Konto titel</string>
+  <string id="2102">Användarnamn :</string>
+  <string id="2103">Lösenord :</string>
+  <string id="2104">Konto</string>
+  <string id="2105">Radera kontot och tillhörande kalendrar ?</string>
+  <string id="2106">Ändra konto ?</string>
+  <!-- OPTIONS MENU STRING -->
+  <string id="30001">Veckan börjar med söndag</string>
+ </strings>

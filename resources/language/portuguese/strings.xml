@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <!--MAIN MENU -->
+  <string id="0">Calendário</string>
+  <string id="1">Actualizar</string>
+  <string id="2">Eventos</string>
+  <string id="3">Calendários</string>
+  <string id="4">Sair</string>
+  <!--SUB MENU -->
+  <string id="10">Mostrar Calendário</string>
+  <string id="11">Adicionar Calendário</string>
+  <!--Titles -->
+  <string id="20">HOJE</string>
+  <string id="21">MOSTRAR CALENDÁRIO</string>
+  <string id="22">ADICIONAR CALENDÁRIO</string>
+  <!--Dialog -->
+  <string id="30">A carregar calendários...</string>
+  
+  <!--Calendars months -->
+  <string id="101">Janeiro</string>
+  <string id="102">Fevereiro</string>
+  <string id="103">Março</string>
+  <string id="104">Abril</string>
+  <string id="105">Maio</string>
+  <string id="106">Junho</string>
+  <string id="107">Julho</string>
+  <string id="108">Agosto</string>
+  <string id="109">Setembro</string>
+  <string id="110">Outubro</string>
+  <string id="111">Novembro</string>
+  <string id="112">Dezembro</string>
+  <!--Calendars days -->
+  <string id="121">Segunda</string>
+  <string id="122">Terça</string>
+  <string id="123">Quarta</string>
+  <string id="124">Quinta</string>
+  <string id="125">Sexta</string>
+  <string id="126">Sabado</string>
+  <string id="127">Domingo</string>
+  <!--Calendars days abr-->
+  <string id="131">seg.</string>
+  <string id="132">Ter.</string>
+  <string id="133">Qua.</string>
+  <string id="134">Qui.</string>
+  <string id="135">Sex.</string>
+  <string id="136">Sab.</string>
+  <string id="137">Dom.</string>
+  <!--Calendars colors-->
+  <string id="141">Vermelho</string>
+  <string id="142">Rosa</string>
+  <string id="143">Violeta</string>
+  <string id="144">Purpura</string>
+  <string id="145">Azul-Marinho</string>
+  <string id="146">Azul</string>
+  <string id="147">Ciano</string>
+  <string id="148">Verde</string>
+  <string id="149">Lima</string>
+  <string id="150">Laranja</string>
+  <string id="151">Castanho</string>
+  
+  <!--Show Events Panel -->
+  <string id="1210">Hoje</string>
+  <string id="1211">até</string>
+  <string id="1212">Todo o dia</string>
+  
+  <!--Add Calendar Panel -->
+  <string id="1220">Título :</string>
+  <string id="1221">Cor :</string>
+  <string id="1222">Tipo :</string>
+  <string id="1223">Caminho :</string>
+  <string id="1224">Conta :</string>
+  <string id="1225">Calendário :</string>
+  
+  
+  <!--OPTIONS MENU STRING -->
+  <string id="30001">Semana começa ao Domingo</string>
+</strings>
